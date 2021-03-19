@@ -1,0 +1,22 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Management service to manage the flow of architecture",
+  "main": "manager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mer-team/Manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mer-team/Manager/issues"
+  },
+  "homepage": "https://github.com/mer-team/Manager#readme",
+  "dependencies": {
+    "amqplib": "^0.6.0"
+  }
+}
