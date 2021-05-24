@@ -10,7 +10,7 @@ const config = {
 }
 
 const qMain = "management",
-      vID = "{ Service: 'VidExtractor', Result: { vID: 'JiF3pbvR5G0'} }",
+      vID = '{ "Service": "VidExtractor", "Result": { "vID": "JiF3pbvR5G0"} }',
       qSec = "separate",
       exp = "JiF3pbvR5G0";
 
