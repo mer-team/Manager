@@ -7,6 +7,7 @@ Vagrant.configure("2") do |config|
   config.disksize.size = '20GB'
 
   config.vm.provider "virtualbox" do |v|
+    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
     v.name = "Manager"
     v.memory = "4096"
     v.cpus = 2
