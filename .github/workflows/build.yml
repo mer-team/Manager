@@ -51,9 +51,9 @@ jobs:
       working-directory: src
     #- name: Runnning build
     #  run: npm run build --if-present
-    #- name: Running tests
-    #  run: npm test
-    #  working-directory: src
+    - name: Running tests
+      run: npm test
+      working-directory: src
 
     - name: Dump docker logs on failure
       if: failure()
