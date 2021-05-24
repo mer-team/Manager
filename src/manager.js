@@ -1,7 +1,7 @@
 const user = process.env.USER || 'guest',
-    pass = process.env.PASS || 'guest',
-    host = process.env.HOST || 'localhost',
-    var amqp = require('amqplib/callback_api');
+      pass = process.env.PASS || 'guest',
+      host = process.env.HOST || 'localhost';
+var amqp = require('amqplib/callback_api');
 
 amqp.connect(`amqp://${user}:${pass}@${host}/`, function (error0, connection) {
     if (error0) {
