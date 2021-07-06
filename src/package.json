@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/mer-team/Manager#readme",
   "dependencies": {
-    "amqplib": "^0.6.0"
+    "amqplib": "^0.6.0",
+    "mongodb": "^3.6.9"
   },
   "devDependencies": {
     "mocha": "^8.4.0"
