@@ -16,9 +16,12 @@ jobs:
       MQPASS: passwordMER
       MQPORT: 5672
       MNG_PORT: 15672
+      MONGO_URL: mongodb://merUser:passwordMER@localhost:27017
+      MONGO_DB: manager
+      MONGO_COL: teste
 
     steps:    
-    - name: Setup RabbitMQ Image
+    - name: Setup RabbitMQ Container
       uses: mer-team/rabbitmq-mng-action@v1.2
       with:
         RABBITMQ_USER: $MQUSER
@@ -26,6 +29,14 @@ jobs:
         RABBITMQ_PORT: $MQPORT
         RABBITMQ_MNG_PORT: $MNG_PORT
         RABBITMQ_TAG: '3-management-alpine'
+
+    - name: Setup MongoDB Container
+      uses: getong/mongo-action@v1.1
+      with:
+        mongo version: 'latest'
+        host port: 27017
+        mongo username: $MQUSER
+        mongo password: $MQPASS
 
     - name: Checkout Manager Project
       uses: actions/checkout@v2
@@ -39,7 +50,7 @@ jobs:
         image-name: manager:latest
 
     - name: Run Local Manager Docker Image
-      run: docker run -d -e TIME=10 -e USER=$MQUSER -e PASS=$MQPASS -e HOST=$MQHOST -e MNG_PORT=$MNG_PORT --net=host manager:latest
+      run: docker run -d -e TIME=10 -e USER=$MQUSER -e PASS=$MQPASS -e HOST=$MQHOST -e MNG_PORT=$MNG_PORT -e MONGO_URL=$MONGO_URL -e MONGO_DB=$MONGO_DB -e MONGO_COLL=$MONGO_COL --net=host manager:latest
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
